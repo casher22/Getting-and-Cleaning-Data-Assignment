@@ -1,0 +1,66 @@
+---
+title: "Codebook-Samsung Accelerometers"
+author: "Emily C."
+date: "December 14, 2017"
+output: html_document
+---
+        
+Raw data:
+The raw data can be downloaded using the following url:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Data origin:
+Raw data was generated as part of the University of California Irvine's study of Human Activity Recognition Using Smartphones
+
+Study Design:
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+---
+Goal of Analysis:
+Create a tidy dataset that clearly shows the mean, mean frequency and standard deviation for each subject and activity
+
+Codebook:
+The raw data was read into R as tables and combined to create one wide dataset with the varibles described below. The varible names and activty observation names were updated to provide clearer descriptions (Ex: activity 2 became WALkING_UPSTAIRS).Then, the data was subset to only include the mean, mean frequency, and standard deviation variables. Finally, the data was grouped by subject and activity and the average was calculated for each mean, mean frequency, and standard deviation variable. Refer to the "run_analysis.R" script for the step by step instructions to reperform the analysis.
+
+---
+
+Grouped Variables:
+subject- Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+activity- The activity the subject performed. Includes 6 different options: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
+Measurement Variables:
+The features selected come from the accelerometer and gyroscope 3-axial raw signals timeAcc-XYZ and timeGyro-XYZ. These time domain signals were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (timeBodyAcc-XYZ and timeGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (timeBodyAccJerk-XYZ and timeBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (timeBodyAccMag, timeGravityAccMag, timeBodyAccJerkMag, timeBodyGyroMag, timeBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing freuencyBodyAcc-XYZ, frequencyBodyAccJerk-XYZ, frequencyBodyGyro-XYZ, frequencyBodyAccJerkMag, frequencyBodyGyroMag, frequencyBodyGyroJerkMag. 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+timeBodyAcc-XYZ
+timeGravityAcc-XYZ
+timeBodyAccJerk-XYZ
+timeBodyGyro-XYZ
+timeBodyGyroJerk-XYZ
+timeBodyAccMag
+timeGravityAccMag
+timeBodyAccJerkMag
+timeBodyGyroMag
+timeBodyGyroJerkMag
+frequencyBodyAcc-XYZ
+frequencyBodyAccJerk-XYZ
+frequencyBodyGyro-XYZ
+frequencyBodyAccMag
+frequencyBodyAccJerkMag
+frequencyBodyGyroMag
+frequencyBodyGyroJerkMag
+
+The set of variables that were estimated from these signals are 
+mean(): Mean value
+std(): Standard deviation
+meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+
+These variables were averaged across all observations within each unique subject and activity.
+
