@@ -75,4 +75,4 @@ library(dplyr)
 ##check- summarizeddata dimensions should be 180 rows and 81 columns
 
 ##save to txt file
-        write.table(summarizeddata,file="Samsung Galaxy S Accelerometers- Tidy Data.txt")
+        write.table(summarizeddata,file="Samsung Galaxy S Accelerometers- Tidy Data.txt",row.names = FALSE)
